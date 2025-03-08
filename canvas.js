@@ -197,15 +197,15 @@
     }
   
     function getThemeColors(opt){
-      let dPetal = new randomColor()
-      let dPistil = new randomColor()
+      let dPetal = new randomColor(20, 60, 60, 90) // Tăng lightness, giảm saturation
+      let dPistil = new randomColor(30, 70, 50, 85) // Nhụy hoa cũng sẽ nhạt hơn
       if(!opt) return [dPistil, dPetal]
       if(opt.h) dPetal.h = opt.h + getRandomInt(-opt.vary,opt.vary)
-      if(opt.s) dPetal.s = opt.s + getRandomInt(-opt.vary,opt.vary)
-      if(opt.l) dPetal.l = opt.l + getRandomInt(-opt.vary,opt.vary)
+      if(opt.s) dPetal.s = Math.max(20, opt.s - getRandomInt(0, opt.vary)) // Giảm bão hòa
+      if(opt.l) dPetal.l = Math.min(90, opt.l + getRandomInt(10, opt.vary)) // Tăng độ sáng
       if(opt.h2) dPistil.h = opt.h2 + getRandomInt(-opt.vary,opt.vary)
-      if(opt.s2) dPistil.s = opt.s2 + getRandomInt(-opt.vary,opt.vary)
-      if(opt.l2) dPistil.l = opt.l2 + getRandomInt(-opt.vary,opt.vary)
+      if(opt.s2) dPistil.s = Math.max(25, opt.s2 - getRandomInt(0, opt.vary))
+      if(opt.l2) dPistil.l = Math.min(85, opt.l2 + getRandomInt(10, opt.vary))
       return [dPetal, dPistil]
     }
     
@@ -226,12 +226,22 @@
   function distance(p1, p2) {
     return Math.floor(Math.sqrt(Math.pow(p1.x-p2.x,2) + Math.pow(p1.y - p2.y,2)))      
   }
-  function randomColor(minSat = 0, maxSat=100, minBright=0, maxBright=100){
-    this.h = getRandomInt(0,360)
-    this.s = getRandomInt(minSat,maxSat)
-    this.l = getRandomInt(minBright,maxBright)
-    this.hsl = ()=>{return`hsl(${this.h},${this.s}%,${this.l}%)`};
+  function randomColor(minSat = 10, maxSat = 50, minBright = 75, maxBright = 95) {
+    let hueRanges = [
+      [190, 250],            // Xanh dương
+      [90, 150],          // Trắng (thực ra là độ bão hòa thấp)
+    ];
+    let range = pick(hueRanges);
+    this.h = getRandomInt(range[0], range[1]);
+    
+    // Nếu là trắng, giảm bão hòa xuống mức thấp
+    this.s = range[0] === 0 && range[1] === 360 ? getRandomInt(0, 10) : getRandomInt(minSat, maxSat);
+    
+    this.l = getRandomInt(minBright, maxBright);
+    this.hsl = () => `hsl(${this.h},${this.s}%,${this.l}%)`;
   }
+  
+  
   function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
