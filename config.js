@@ -16,10 +16,10 @@ const text = {
 }
 
 const contentCard = `
-🌸 Chúc bạn ${text[titleFromUrl]} có một ngày 8/3 thật rực rỡ, luôn xinh đẹp, hạnh phúc và tràn đầy năng lượng! ✨ 
-🌷 Chúc bạn luôn thành công, gặp nhiều may mắn, và có thật nhiều niềm vui trong cuộc sống.
+🌸 Chúc chị ${text[titleFromUrl]} có một ngày 8/3 thật rực rỡ, luôn xinh đẹp, hạnh phúc và tràn đầy năng lượng! ✨ 
+🌷 Chúc chị luôn thành công, gặp nhiều may mắn, và có thật nhiều niềm vui trong cuộc sống.
 <br> 
-Hãy luôn tự tin và tỏa sáng nhé! 💕
+Chúc chị luôn tự tin và vui vẻ nhé! 💕
 <br>
 💝 Happy Women's Day! 🎉🥰`;
 
