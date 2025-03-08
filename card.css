@@ -1,0 +1,43 @@
+    #card {
+        margin: 8%;
+        position: absolute;
+        height: auto;
+        width: 350px;
+        border-radius: 10px;
+        background-color: white;
+        background-image: url('./8-march-inscription-with-roses-table.jpg');
+        background-size: 50vh, 70vh;
+        /* box-shadow: 0px 0px 20px red; */
+        transform: rotate(5deg);
+        top: 0px;
+        opacity: 0;
+        left: -200%;
+    }
+
+    .honey {
+        margin: auto;
+        padding: 5%;
+        display: block;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px 0 red;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+
+    h4 {
+        text-align: center;
+        -webkit-background-clip: unset; /* Loại bỏ hiệu ứng nền chữ */
+        -webkit-text-fill-color: rgb(170, 81, 99); /* Chắc chắn chữ hiển thị màu đen */
+        font-family: 'Allura', cursive;
+        font-size: 19px;
+        overflow: hidden;
+        color: gray;
+    }
+    
+
+    .card-show{
+        opacity: 1 !important;
+        left: 0 !important;
+        transition: all 2s;
+    }
