@@ -1,6 +1,6 @@
 const nameGirl = ''; // Thay tên người nhận nếu có
 const giftUrl = 'http://nodemy.vn';
-const eventName = 'Chúc Mừng 8/3';
+const eventName = `Nhấn vào đây nhé🤗`;
 const titleCard = '8/3 Vui Vẻ';
 
 const urlParams = new URLSearchParams(window.location.search);
