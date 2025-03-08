@@ -1,5 +1,5 @@
 const nameGirl = ''; // Thay tên người nhận nếu có
-const giftUrl = 'http://nodemy.vn';
+const giftUrl = '';
 const eventName = `Nhấn vào đây nhé🤗`;
 const titleCard = '8/3 Vui Vẻ';
 
